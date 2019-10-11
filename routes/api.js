@@ -5,11 +5,9 @@ const db = require("../model/helper");
 
 router.use(bodyParser.json());
 
-router.get("/", (req, res) => {
-  res.send("Welcome to the API");
+// get a list of classID
+router.get("/api/classes", (req, res) => {
+  res.send("List of classes");
 });
 
-router.get("/todos", (req, res) => {
-  // call the sendItems function to send back the full list of items
-  sendItems(req, res);
-});
+module.exports = router;
