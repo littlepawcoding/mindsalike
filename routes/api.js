@@ -31,7 +31,7 @@ router.get("/classes/:classID", (req, res) => {
 
 // ENDPOINT 3) give me a list of the dogs taking classID 9
 // localhost:5000/dog_classes/9;
-router.get("/dog_classes/:classID", (req, res) => {
+router.get("/classes/:classID/dogs", (req, res) => {
   db(`SELECT * FROM dog_classes WHERE classID=${req.params.classID};`).then(
     results => {
       if (results.error) {
@@ -65,8 +65,8 @@ router.get("/dogs/:dogID;", (req, res) => {
 });
 
 // ENDPOINT 6) give me a list of the classes dogID 1 is taking
-// localhost:5000/dog_classes/1;
-router.get("/dog_classes/:dogID", (req, res) => {
+// localhost:5000/dogs/5/classes
+router.get("/dogs/:dogID/classes", (req, res) => {
   db(`SELECT * FROM dog_classes WHERE dogID=${req.params.dogID};`).then(
     results => {
       if (results.error) {
