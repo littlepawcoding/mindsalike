@@ -28,10 +28,10 @@ router.get("/classes/:classID", (req, res) => {
   });
 });
 
-// ENDPOINT 3) give me a list of the dogs in class with id of 3
-// SELECT * FROM dog_classes WHERE classID=3 ORDER BY dogID;
-router.get("/dog_classes/:classID=3/:dogsID", (req, res) => {
-  db("SELECT * FROM dog_classes WHERE classID=3 ORDER BY dogID;").then(
+// ENDPOINT 3) give me a list of the classes dogID 1 is taking
+// SELECT * FROM dog_classes WHERE dogID=1 ORDER BY classID;
+router.get("/dog_classes/:dogID/:classID", (req, res) => {
+  db("SELECT * FROM dog_classes WHERE dogID=1 ORDER BY classID;").then(
     results => {
       if (results.error) {
         res.status(500).send(results.error);
@@ -43,8 +43,8 @@ router.get("/dog_classes/:classID=3/:dogsID", (req, res) => {
 
 // SELECT * FROM classes;
 // SELECT * FROM classes WHERE classID=7;
-// SELECT * FROM dog_classes WHERE classID=3 ORDER BY dogID;
 // SELECT * FROM dog_classes WHERE dogID=1 ORDER BY classID;
+// SELECT * FROM dog_classes WHERE classID=3 ORDER BY dogID;
 // SELECT * FROM dogs;
 // SELECT * FROM classes WHERE classID=5;
 // SELECT * FROM dog_classes WHERE dogID=1 ORDER BY classID;
