@@ -23,7 +23,7 @@ app.get("/", function(req, res, next) {
   res.send("Access the API at path /api");
 });
 
-app.use("/api", apiRouter);
+app.use("", apiRouter);
 
 // Anything that doesn't match the above, send back index.html
 app.get("*", (req, res) => {
