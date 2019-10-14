@@ -5,7 +5,7 @@ const db = require("../model/helper");
 
 router.use(bodyParser.json());
 
-// get a list of classID
+// endpoint 1) give me all the data from classes
 router.get("/classes", (req, res) => {
   db("SELECT * FROM classes;").then(results => {
     if (results.error) {
@@ -15,11 +15,21 @@ router.get("/classes", (req, res) => {
   });
 });
 
-router.get("/classes/:dogID", function(req, res) {
-  db("SELECT * FROM classes;").then,
-    function(results) {
-      res.send(results.data);
-    };
+// endpoint 2) give me a specific class with a certain id
+// router.get("/classes/:dogID", function(req, res) {
+//   db("SELECT * FROM classes WHERE classID=7;").then,
+//     function(results) {
+//       res.send(results.data);
+//     };
+// });
+
+router.get("/classes/:dogID", (req, res) => {
+  db("SELECT * FROM classes WHERE classID=7;").then(results => {
+    if (results.error) {
+      res.status(500).send(results.error);
+    } //
+    res.send(results.data);
+  });
 });
 
 // My 6 endpoints:
