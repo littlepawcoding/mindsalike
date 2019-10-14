@@ -19,10 +19,14 @@ https://app.dbdesigner.net/designer/schema/274995
 
 ### API route plans
 
-| URI                | HTTP Method | Description                                | Request Object | Response Object                                                   |
-| ------------------ | ----------- | ------------------------------------------ | -------------- | ----------------------------------------------------------------- |
-| /api/classes       | GET         | Gets all classes                           | n/a            | { classID: ingeter }                                              |
-| /api/classes/dogID | GET         | Gets specific dogID and classes its taking | n/a            | dogID: integer dogName: string classID: integer className: string |
+| URI                          | HTTP Method | Description                            | Req Object | Res Object |
+| ---------------------------- | ----------- | -------------------------------------- | ---------- | ---------- |
+| /classes                     | GET         | Get all data from classes              | none       | INT        |
+| /classes/:classID            | GET         | Get list of specific class             | none       | INT        |
+| /dog_classes/:classID/:dogID | GET         | Get list of dogs taking specific class | none       | INT        |
+| /dogs                        | GET         | Get all data from dogs                 | none       | INT        |
+| /dogs/:dogID                 | GET         | Get list of specific dog               | none       | INT        |
+| /dog_classes/:dogID/:classID | GET         | Get class list for specific dog        | none       | INT        |
 
 ## Setup
 
