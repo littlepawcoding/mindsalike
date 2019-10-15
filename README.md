@@ -55,7 +55,7 @@ DB_NAME=mindsalike
 DB_PASS={a password of your choosing}
 ```
 
-- Run `node model/migration.js` in your **TERMINAL**.
+- Run `yarn migrate` in your **TERMINAL**.
 - This will create four tables in your database called:
   - 'classes'
   - 'dogs'

@@ -5,7 +5,8 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "migrate": "node model/migration.js"
   },
   "husky": {
     "hooks": {
