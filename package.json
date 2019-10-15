@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "migrate": "node model/migration.js"
+    "migrate": "node ./model/migration.js"
   },
   "husky": {
     "hooks": {
