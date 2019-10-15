@@ -19,7 +19,7 @@ con.connect(function(err) {
   console.log("Connected!");
   // create classes table
   let sql =
-    "DROP TABLE if exists classes; CREATE TABLE classes(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
+    "DROP TABLE if exists classes; CREATE TABLE classes(classID int(11) NOT NULL AUTO_INCREMENT, className varchar(255) NOT NULL, classDescription varchar(255) NOT NULL, classStartDate date DEFAULT NULL, classStartTime time DEFAULT NULL, classEndDate date DEFAULT NULL, classEndTime time DEFAULT NULL, classSingleCost int(11) NOT NULL, classQuantity int(11) NOT NULL, classTotalCost int(11) NOT NULL, classSpotsRemaining int(11) NOT NULL, classLocation varchar(255) NOT NULL, PRIMARY KEY (`classID`));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `classes` was successful!");
@@ -33,7 +33,7 @@ con.connect(function(err) {
   });
   // create dogs table
   sql =
-    "DROP TABLE if exists dogs; CREATE TABLE dogs(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
+    "DROP TABLE if exists dogs; CREATE TABLE dogs(`dogID` int(11) NOT NULL AUTO_INCREMENT, `dogName` varchar(255) NOT NULL, `dogBreed` varchar(255) NOT NULL, `dogSex` tinyint(4) NOT NULL, `dogDateofBirth` date NOT NULL, `dogAge` int(11) NOT NULL, `dogNeutCast` tinyint(4) NOT NULL, `primaryVacinations` tinyint(4) NOT NULL, `dogRisk` tinyint(4) NOT NULL, `dogComments` varchar(255) NOT NULL, PRIMARY KEY (`dogID`);";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `dogs` was successful!");
@@ -47,7 +47,7 @@ con.connect(function(err) {
   });
   // create owners table
   sql =
-    "DROP TABLE if exists owners; CREATE TABLE owners(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
+    "DROP TABLE if exists owners; CREATE TABLE owners(`ownerID` int(11) NOT NULL AUTO_INCREMENT, `dogID` int(11) NOT NULL, `ownerFirstName` varchar(255) NOT NULL, `ownerLastName` varchar(255) NOT NULL, `emailAddress` varchar(255) NOT NULL, `phoneNumber` int(15) NOT NULL, `privacyPolicy` tinyint(1) NOT NULL, `termsConditions` tinyint(1) NOT NULL, PRIMARY KEY (`ownerID`));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `owners` was successful!");
@@ -61,7 +61,7 @@ con.connect(function(err) {
   });
   // create dog_classes pivot table
   sql =
-    "DROP TABLE if exists dog_classes; CREATE TABLE dog_classes(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
+    "DROP TABLE if exists dog_classes; CREATE TABLE dog_classes(dog_classesID INT NOT NULL AUTO_INCREMENT, dogID INT NOT NULL, classID INT NOT NULL, ownerID INT NOT NULL, PRIMARY KEY (dog_classesID));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `dog_classes` was successful!");
@@ -75,3 +75,5 @@ con.connect(function(err) {
 
   con.end();
 });
+
+// "DROP TABLE if exists dog_classes; CREATE TABLE dog_classes(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
