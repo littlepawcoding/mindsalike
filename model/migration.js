@@ -33,7 +33,7 @@ con.connect(function(err) {
   });
   // create dogs table
   sql =
-    "DROP TABLE if exists dogs; CREATE TABLE dogs(`dogID` int(11) NOT NULL AUTO_INCREMENT, `dogName` varchar(255) NOT NULL, `dogBreed` varchar(255) NOT NULL, `dogSex` tinyint(4) NOT NULL, `dogDateofBirth` date NOT NULL, `dogAge` int(11) NOT NULL, `dogNeutCast` tinyint(4) NOT NULL, `primaryVacinations` tinyint(4) NOT NULL, `dogRisk` tinyint(4) NOT NULL, `dogComments` varchar(255) NOT NULL, PRIMARY KEY (`dogID`);";
+    "DROP TABLE if exists dogs; CREATE TABLE dogs(dogID int(11) NOT NULL AUTO_INCREMENT, dogName varchar(255) NOT NULL, dogBreed varchar(255) NOT NULL, dogSex tinyint(4) NOT NULL, dogDateofBirth date NOT NULL, dogAge int(11) NOT NULL, dogNeutCast tinyint(4) NOT NULL, primaryVacinations tinyint(4) NOT NULL, dogRisk tinyint(4) NOT NULL, dogComments varchar(255) NOT NULL, PRIMARY KEY (dogID);";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `dogs` was successful!");
@@ -47,7 +47,7 @@ con.connect(function(err) {
   });
   // create owners table
   sql =
-    "DROP TABLE if exists owners; CREATE TABLE owners(`ownerID` int(11) NOT NULL AUTO_INCREMENT, `dogID` int(11) NOT NULL, `ownerFirstName` varchar(255) NOT NULL, `ownerLastName` varchar(255) NOT NULL, `emailAddress` varchar(255) NOT NULL, `phoneNumber` int(15) NOT NULL, `privacyPolicy` tinyint(1) NOT NULL, `termsConditions` tinyint(1) NOT NULL, PRIMARY KEY (`ownerID`));";
+    "DROP TABLE if exists owners; CREATE TABLE owners(ownerID int(11) NOT NULL AUTO_INCREMENT, dogID int(11) NOT NULL, ownerFirstName varchar(255) NOT NULL, ownerLastName varchar(255) NOT NULL, emailAddress varchar(255) NOT NULL, phoneNumber int(15) NOT NULL, privacyPolicy tinyint(1) NOT NULL, termsConditions tinyint(1) NOT NULL, PRIMARY KEY (ownerID));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `owners` was successful!");
