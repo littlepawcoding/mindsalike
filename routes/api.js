@@ -77,6 +77,36 @@ router.get("/dogs/:dogID/classes", (req, res) => {
   );
 });
 
+// joining table endpoint
+router.get("/dogs/:dogID/classes", (req, res) => {
+  db(`SELECT dc.*, d.dogName, c.className, o.ownerFirstName
+      FROM dog_classes AS dc
+      LEFT JOIN owners AS o
+        ON dc.ownerID = o.ownerID
+      LEFT JOIN dogs AS d
+        ON dc.dogID = d.dogID
+      LEFT JOIN classes AS c
+        ON dc.classID = c.classID
+          WHERE c.classID=${req.params.dogID};`).then(results => {
+    if (results.error) {
+      res.status(500).send(results.error);
+    } //
+    res.send(results.data);
+  });
+});
+
+// select dc.*, d.dogName, c.className, o.ownerFirstName
+// from dog_classes dc
+// left join owners o
+// 	on dc.ownerID = o.ownerID
+// left join dogs d
+// 	on dc.dogID = d.dogID
+// left join classes c
+// 	on dc.classID = c.classID
+//     where c.classID = 7
+
+module.exports = router;
+
 // Endpoints:
 // SELECT * FROM classes;
 // SELECT * FROM classes WHERE classID=7;
@@ -85,4 +115,13 @@ router.get("/dogs/:dogID/classes", (req, res) => {
 // SELECT * FROM dogs WHERE dogID=5;
 // SELECT * FROM dog_classes WHERE dogID=1 ORDER BY classID;
 
-module.exports = router;
+// Joining table endpoint:
+// select dc.*, d.dogName, c.className, o.ownerFirstName
+// from dog_classes dc
+// left join owners o
+// 	on dc.ownerID = o.ownerID
+// left join dogs d
+// 	on dc.dogID = d.dogID
+// left join classes c
+// 	on dc.classID = c.classID
+//     where c.classID = 7
