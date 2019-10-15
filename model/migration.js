@@ -23,57 +23,26 @@ con.connect(function(err) {
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `classes` was successful!");
-
-    console.log("Closing...");
   });
-
-  con.end();
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
 
   let sql =
     "DROP TABLE if exists dogs; CREATE TABLE dogs(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `dogs` was successful!");
-
-    console.log("Closing...");
   });
-
-  con.end();
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
 
   let sql =
     "DROP TABLE if exists owners; CREATE TABLE owners(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `owners` was successful!");
-
-    console.log("Closing...");
   });
-
-  con.end();
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
 
   let sql =
     "DROP TABLE if exists dog_classes; CREATE TABLE dog_classes(id INT NOT NULL AUTO_INCREMENT, text VARCHAR(40) not null, complete BOOLEAN, PRIMARY KEY (id));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `dog_classes` was successful!");
-
-    console.log("Closing...");
   });
-
-  con.end();
 });

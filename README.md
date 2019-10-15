@@ -44,6 +44,8 @@ https://app.dbdesigner.net/designer/schema/274995
 
 **Please follow these steps to get setup:**
 
+- Run `yarn` on root folder to install dependencies related to Express.
+
 ### Database Prep
 
 - Create `.env` file in project directory and add
@@ -62,13 +64,9 @@ DB_PASS={a password of your choosing}
 
 ### Run Your Development Servers
 
-- Run `yarn` on root folder to install dependencies related to Express.
-- Do `yarn start` to run the server. <br>
+- Run `yarn start` in project directory to start the Express <br>
   _Port should start on Localhost:5000._
-
-- Run `yarn start` in project directory to start the Express server on port 5000
-- You can test your client app in `http://localhost:3000`
-- You can test your API in `http://localhost:5000/api`
+- Test your API in `http://localhost:5000`
 
 ## Resources
 
