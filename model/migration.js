@@ -33,7 +33,7 @@ con.connect(function(err) {
   });
   // create dogs table
   sql =
-    "DROP TABLE if exists dogs; CREATE TABLE dogs(dogID int(11) NOT NULL AUTO_INCREMENT, dogName varchar(255) NOT NULL, dogBreed varchar(255) NOT NULL, dogSex tinyint(4) NOT NULL, dogDateofBirth date NOT NULL, dogAge int(11) NOT NULL, dogNeutCast tinyint(4) NOT NULL, primaryVacinations tinyint(4) NOT NULL, dogRisk tinyint(4) NOT NULL, dogComments varchar(255) NOT NULL, PRIMARY KEY (dogID);";
+    "DROP TABLE if exists dogs; CREATE TABLE dogs(dogID int(11) NOT NULL AUTO_INCREMENT, dogName varchar(255) NOT NULL, dogBreed varchar(255) NOT NULL, dogSex tinyint(4) NOT NULL, dogDateofBirth date NOT NULL, dogAge int(11) NOT NULL, dogNeutCast tinyint(4) NOT NULL, primaryVacinations tinyint(4) NOT NULL, dogRisk tinyint(4) NOT NULL, dogComments varchar(255) NOT NULL, PRIMARY KEY (dogID));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `dogs` was successful!");
